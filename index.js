@@ -6,7 +6,7 @@ const app = express();
 
 const Note = require('./models/notes.js');
 
-mongoose.connect('mongodb://localhost:27017/note', {
+mongoose.connect(process.env.databaseUrl || 'mongodb://localhost:27017/note', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -52,6 +52,7 @@ app.delete('/notes/:id', async (req, res) => {
     res.redirect('/notes');
 });
 
-app.listen('3000', () => {
-    console.log('Server Started');
+app.listen(process.env.PORT || 3000, process.env.IP, () => {
+    console.log(process.env.PORT || 3000);
+    console.log("SERVER STARTED");
 });

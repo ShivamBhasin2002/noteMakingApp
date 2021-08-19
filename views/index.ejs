@@ -20,7 +20,7 @@
         <div class="heading text-center pt-2">
             <h3>Note Making App</h3>
         </div>
-        <div class="content d-flex">
+        <div class="content <% if(notes.length===0) {%> d-flex <% } %> ">
             <% if(notes.length!==0) { for(note of notes) {%>
                 <div class="note d-flex">
                     <form action="/notes/<%= note._id %>?_method=put" method="Post"
