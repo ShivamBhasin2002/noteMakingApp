@@ -49,6 +49,7 @@ body{
 .content{
     background-color: #A2DCEE;
     min-height: 350px;
+    flex-grow: 100;
 }
 
 .note{
