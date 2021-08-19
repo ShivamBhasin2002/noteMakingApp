@@ -16,12 +16,12 @@
 </head>
 
 <body>
-    <div class="box">
+    <div class="box d-flex">
         <div class="heading text-center pt-2">
             <h3>Note Making App</h3>
         </div>
-        <div class="content">
-            <% for(note of notes) {%>
+        <div class="content d-flex">
+            <% if(notes.length!==0) { for(note of notes) {%>
                 <div class="note d-flex">
                     <form action="/notes/<%= note._id %>?_method=put" method="Post"
                         class="d-flex editForm needs-validation" novalidate>
@@ -32,7 +32,10 @@
                         <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </form>
                 </div>
-                <% } %>
+                <% }}%>
+                    <%if(notes.length===0){ %>
+                        <span class="text-muted">Try Creating A New Note</span>
+                        <% } %>
         </div>
         <div class="form">
             <form action="/notes" class="needs-validation" method="POST" novalidate>
